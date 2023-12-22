@@ -24,11 +24,13 @@
             /* Adjust line height for better readability */
             margin: 45px;
             overflow-x: auto;
-            white-space: nowrap; /* Prevent text from wrapping to the next line */
+            white-space: nowrap;
+            /* Prevent text from wrapping to the next line */
         }
 
         .grid td {
             padding-right: 65px;
+            text-align: center; /* Center the text horizontally */
             /* Adjust the spacing as needed */
         }
 
@@ -90,31 +92,23 @@
             const container = document.getElementById('output');
 
             const CHARS_PER_COLUMN = 25; // Set your desired number of characters per column
-            const COLUMNS_PER_PAGE = 25; // Set your desired number of columns per page
 
             let characters = text.split('');
 
             // Here, we create an empty array called grid which will be used to represent the structure of our text in columns.
             let grid = [];
 
-            // Initialize the grid with empty arrays for each column
-            // In this loop, we populate the grid array with empty arrays to represent each column.
-            // The loop runs COLUMNS_PER_PAGE times, creating an empty array for each column.
-            for (let i = 0; i < COLUMNS_PER_PAGE; i++) {
-                grid.push([]);
-            }
-
-            // Iterate through each character in the input text            
             let columnIndex = 0;
             let currentIndex = 0;
+
             characters.forEach(char => {
-                if (char === ' ' && currentIndex >= CHARS_PER_COLUMN
-                    || char === '\n') {
-                    // Check if the character is a space or newline and the current index exceeds the limit
-                    columnIndex = (columnIndex + 1) % COLUMNS_PER_PAGE;
+                if (char === ' ' && currentIndex >= CHARS_PER_COLUMN || char === '\n') {
+                    columnIndex = (columnIndex + 1);
                     currentIndex = 0;
                 } else {
-                    // Add the character to the current column in the grid
+                    if (!grid[columnIndex]) {
+                        grid[columnIndex] = [];
+                    }
                     grid[columnIndex].push(char);
                     currentIndex++;
                 }
@@ -135,47 +129,40 @@
                 let row = document.createElement('tr');
                 table.appendChild(row);
 
-                for (let j = 0; j < COLUMNS_PER_PAGE; j++) {
+                for (let j = 0; j < grid.length; j++) {
                     let cell = document.createElement('td');
                     if (GLYPHS_BOOL) {
                         cell.classList.add('character', 'glyphs');
                     } else {
                         cell.classList.add('character');
                     }
-                    // ###################################
+
                     if (grid[j][i]) {
                         let character = grid[j][i];
 
                         let span = document.createElement('span');
 
                         if (TRANSLATE_BOOL && /^[a-zA-Z]$/.test(character)) {
-                            // If translation is needed, create a span for the original character with default font
                             let originalSpan = document.createElement('span');
                             originalSpan.textContent = character;
 
-                            // Append the original span to the cell
                             span.appendChild(originalSpan);
 
-                            // Create a separate span for the translated part with a different font
                             let translationSpan = document.createElement('span');
                             translationSpan.textContent = ' = ' + character;
-                            translationSpan.style.fontFamily = 'Courier New'; // Set your desired standard font
-                            translationSpan.style.fontWeight = 'normal'; // Set the font weight to normal
+                            translationSpan.style.fontFamily = 'Courier New';
+                            translationSpan.style.fontWeight = 'normal';
 
-                            // Append the translation span
                             span.appendChild(translationSpan);
                         } else {
-                            // If no translation needed, create a single span with default font
                             span.textContent = character;
                         }
 
-                        // Append the span to the cell
                         cell.appendChild(span);
                     } else {
-                        cell.innerHTML = '&nbsp;'; // Non-breaking space for empty cells
+                        cell.innerHTML = '&nbsp;';
                     }
 
-                    // ##################################
                     row.appendChild(cell);
                 }
             }
@@ -183,12 +170,12 @@
 
         function toggleBold() {
             BOLD_BOOL = !BOLD_BOOL;
-            writeText(); // Refresh the output to apply the bold style
+            writeText();
         }
 
         function toggleTranslate() {
             TRANSLATE_BOOL = !TRANSLATE_BOOL;
-            writeText(); // Refresh the output to apply the translation
+            writeText();
         }
     </script>
 </body>
