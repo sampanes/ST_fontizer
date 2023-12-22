@@ -41,9 +41,11 @@
 <body>
     <label for="textInput">Type something:</label>
     <textarea id="textInput" style="width: 300px; height: 100px;"></textarea>
-    <button onclick="saveText()">Save</button>
-    <button onclick="toggleBold()">Toggle Bold</button>
-    <button onclick="toggleTranslate()">Translate</button>
+    <div>
+        <button onclick="writeText()">Write</button>
+        <button onclick="toggleBold()">Toggle Bold</button>
+        <button onclick="toggleTranslate()">Translate</button>
+    </div>
     <div id="warning-message"></div><br><br>
     <div id="output"></div>
     <script>
@@ -65,7 +67,7 @@
             };
         }
 
-        function saveText() {
+        function writeText() {
             // Get the value from the textarea
             text = document.getElementById("textInput").value;
 
@@ -179,12 +181,12 @@
 
         function toggleBold() {
             BOLD_BOOL = !BOLD_BOOL;
-            saveText(); // Refresh the output to apply the bold style
+            writeText(); // Refresh the output to apply the bold style
         }
 
         function toggleTranslate() {
             TRANSLATE_BOOL = !TRANSLATE_BOOL;
-            saveText(); // Refresh the output to apply the translation
+            writeText(); // Refresh the output to apply the translation
         }
     </script>
 </body>
