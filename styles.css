@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "SleepToken";
+    src: url("SleepToken_v111.ttf");
+}
+
+.glyphs {
+    font-family: "SleepToken";
+    font-size: 23px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: 'MS Gothic', sans-serif;
+    line-height: 1.5;
+    margin: 45px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.grid td {
+    padding-right: 65px;
+    text-align: center;
+}
+
+#warning-message {
+    color: red;
+    font-weight: bold;
+    display: none;
+}
