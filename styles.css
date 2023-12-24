@@ -26,6 +26,32 @@
     font-style: normal;
 }
 
+button {
+    padding: 10px 20px;
+    font-family: 'DragonFire';
+    font-size: 18px;
+    color: #fff;
+    background-color: #494949;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Big Button styling */
+.button-big {
+    font-size: 24px;
+    /* Adjust the font size as needed for your big button */
+}
+
+.button-big:hover {
+    background-color: #2980b9;
+}
+
 .glyphs {
     font-family: "SleepToken";
     font-size: 23px;
@@ -37,9 +63,9 @@
     /* Adjust the font size as needed */
 }
 
-.button-text {
+.button-text-small {
     font-family: 'DragonFire';
-    font-size: 24px;
+    font-size: 18px;
 }
 
 body {
