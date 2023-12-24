@@ -6,29 +6,22 @@
 }
 
 @font-face {
-    font-family: 'MorrisRoman';
-    src: url('MorrisRoman-Black.ttf') format('truetype');
+    font-family: 'LokiRegular';
+    src: url('Loki-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'MorrisRomanAlternate';
-    src: url('MorrisRomanAlternate-Black.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'DragonFire';
-    src: url('dragon-fire.regular.ttf') format('truetype');
+    font-family: 'BoxedRunes';
+    src: url('AngarsRunes_PERSONAL.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 button {
     padding: 10px 20px;
-    font-family: 'DragonFire';
+    font-family: 'LokiRegular';
     font-size: 18px;
     color: #fff;
     background-color: #494949;
@@ -58,13 +51,13 @@ button:hover {
 }
 
 .most-text {
-    font-family: 'MorrisRoman';
-    font-size: 24px;
+    font-family: 'BoxedRunes';
+    font-size: 48px;
     /* Adjust the font size as needed */
 }
 
 .button-text-small {
-    font-family: 'DragonFire';
+    font-family: 'BoxedRunes';
     font-size: 18px;
 }
 
@@ -93,7 +86,7 @@ body {
 /* styles.css */
 @keyframes glitch {
     0% {
-        font-family: "MorrisRoman";
+        font-family: "LokiRegular";
     }
 
     20% {
@@ -130,8 +123,8 @@ body {
 }
 
 .glitch-text {
-    font-family: "MorrisRoman";
-    src: url("MorrisRoman-Black.ttf");
+    font-family: "LokiRegular";
+    src: url("LokiRegular-Black.ttf");
     font-size: 24px;
     /* Set the initial font */
     visibility: hidden;
@@ -228,3 +221,5 @@ body {
         opacity: var(--background-opacity);
     }
 }
+
+/* FROM CODEPEN IO */
