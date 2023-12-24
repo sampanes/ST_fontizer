@@ -3,18 +3,19 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 <body>
     <div class="background-solid"></div>
     <label for="textInput" class="most-text">Type something:</label>
     <textarea id="textInput" style="width: 300px; height: 100px;"></textarea>
+    <label id="warning-message"><span>Error Message</span></label>
     <div>
         <button onclick="writeText()" class="button button-biug">Write</button>
         <button onclick="toggleBold()" class="button">Toggle Bold</button>
         <button onclick="toggleTranslate()" class="button">Toggle Translate</button>
     </div>
-    <div id="warning-message"></div><br><br>
     <div id="output"></div>
     <script src="script.js"></script>
 </body>

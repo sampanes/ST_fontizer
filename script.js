@@ -7,16 +7,49 @@ let BOLD_BOOL = false;
 const disallowedChars = ['j', 'x', 'z'];
 
 function isTextValid(text) {
-
     // Find the disallowed characters present in the text
     const invalidChars = disallowedChars.filter(char => text.includes(char));
 
+    const hasInvalidChars = invalidChars.length > 0;
+    const isValid = !hasInvalidChars;
+
+    if (text.length > 0) {
+        if(isValid) {
+            $('textarea#textInput').removeClass('error').addClass('correct');
+            hideWarningMessage();
+        }
+        else {
+            $('textarea#textInput').removeClass('correct').addClass('error');
+            showWarningMessage();
+        }
+    }
+
     // Check if any disallowed characters are present in the text
     return {
-        isValid: invalidChars.length === 0,
-        invalidChars: invalidChars.join(', ')
+        isValid,
+        invalidChars: hasInvalidChars ? invalidChars.join(', ') : '',
     };
 }
+
+function showWarningMessage() {
+    $('#warning-message').animate(
+        {
+            opacity: 1
+        },
+        250
+    );
+}
+
+function hideWarningMessage() {
+    $('#warning-message').animate(
+        {
+            opacity: 0
+        },
+        250
+    );
+}
+
+
 
 function writeText() {
     // Get the value from the textarea
