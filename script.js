@@ -2,9 +2,11 @@ const GLYPHS_BOOL = true;
 let TRANSLATE_BOOL = false;
 let BOLD_BOOL = false;
 
+
+// Define the disallowed characters
+const disallowedChars = ['j', 'x', 'z'];
+
 function isTextValid(text) {
-    // Define the disallowed characters
-    const disallowedChars = ['j', 'x', 'z'];
 
     // Find the disallowed characters present in the text
     const invalidChars = disallowedChars.filter(char => text.includes(char));
@@ -87,9 +89,9 @@ function writeText() {
 
                 let span = document.createElement('span');
 
-                // Check for specific characters 'j' or 'x'
-                if (['j', 'x'].includes(character.toLowerCase())) {
-                    // Do something specific for 'j' or 'x'
+                // Check for specific disallowed characters
+                if (disallowedChars.includes(character.toLowerCase())) {
+                    // Do something specific disallowed characters
                     span.textContent = character.toUpperCase(); // For example, convert to uppercase
                     span.style.color = 'red'; // Set the text color to red
                 } else if (TRANSLATE_BOOL && /^[a-zA-Z]$/.test(character)) {
