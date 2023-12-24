@@ -49,8 +49,6 @@ function hideWarningMessage() {
     );
 }
 
-
-
 function writeText() {
     // Get the value from the textarea
     text = document.getElementById("textInput").value;
