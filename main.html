@@ -6,12 +6,13 @@
 </head>
 
 <body>
-    <label for="textInput">Type something:</label>
+    <div class="background-solid"></div>
+    <label for="textInput" class="most-text">Type something:</label>
     <textarea id="textInput" style="width: 300px; height: 100px;"></textarea>
     <div>
-        <button onclick="writeText()">Write</button>
-        <button onclick="toggleBold()">Toggle Bold</button>
-        <button onclick="toggleTranslate()">Translate</button>
+        <button onclick="writeText()" class="button-text">Write</button>
+        <button onclick="toggleBold()" class="button-text">Toggle Bold</button>
+        <button onclick="toggleTranslate()" class="button-text">Translate</button>
     </div>
     <div id="warning-message"></div><br><br>
     <div id="output"></div>
